@@ -193,13 +193,81 @@
 
 Reference: Tools for Analyzing Talk, Part 1: The CHAT Transcription Format, Brian MacWhinney, Carnegie Mellon University
 
-## 2. Word Error Rate (WER) improvement
+# 2. Patient Information
 
+## 2.1 Language Assessment Scores
+
+| Category                     | 1738  | 1944  | 1713  | 1554  | 1833  | 1731  |
+|------------------------------|-------|-------|-------|-------|-------|-------|
+| **Word comprehension**       | 9.38  | 10.00 | 10.00 | 10.00 | 10.00 | 8.54  |
+| **Sentence comprehension**   | 9.38  | 8.13  | 9.58  | 9.58  | 7.71  | 2.71  |
+| **Word finding**             | 7.00  | 5.50  | 9.00  | 8.00  | 7.00  | 1.50  |
+| **Grammatical construction** | 7.75  | 7.13  | 7.50  | 5.13  | 5.75  | 0.75  |
+| **Speech motor programming** | 5.00  | 7.50  | 7.50  | 7.50  | 7.50  | 5.00  |
+| **Repetition**               | 7.50  | 8.75  | 9.17  | 7.08  | 7.92  | 4.58  |
+| **Reading**                  | 7.50  | 9.17  | 9.17  | 8.75  | 7.92  | 0.83  |
+| **Overall**                  | 7.72  | 7.69  | 8.84  | 7.96  | 7.52  | 3.74  |
+
+## 2.2 Connected Speech Features and Severity Scores
+
+| Feature                          | 1738 | 1944 | 1713 | 1554 | 1833 | 1731 |
+|----------------------------------|------|------|------|------|------|------|
+| **Anomia**                      | 1    | 3    | 2    | 2    | 2    | 3    |
+| **Abandoned utterances**         | 0    | 2    | 1    | 1    | 2    | 1    |
+| **Empty speech**                 | 0    | 2    | 0    | 1    | 1    | 1    |
+| **Semantic paraphasias**         | 0    | 0    | 1    | 1    | 1    | 2    |
+| **Phonemic paraphasias**         | 0    | 0    | 1    | 0    | 0    | 1    |
+| **Neologisms**                   | 0    | 0    | 0    | 0    | 0    | 0    |
+| **Jargon**                       | 0    | 0    | 0    | 0    | 0    | 0    |
+| **Perseverations**               | 0    | 0    | 0    | 0    | 0    | 1    |
+| **Stereotypies & automatisms**   | 0    | 0    | 0    | 0    | 0    | 2    |
+| **Short & simplified utterances**| 0    | 1    | 0    | 2    | 1    | 4    |
+| **Omission of bound morphemes**  | 0    | 1    | 1    | 1    | 0    | 3    |
+| **Omission of function words**   | 0    | 0    | 1    | 2    | 2    | 4    |
+| **Paragrammatism**               | 1    | 1    | 1    | 1    | 1    | 1    |
+| **Pauses between utterances**    | 1    | 2    | 0    | 2    | 1    | 1    |
+| **Pauses within utterances**     | 2    | 3    | 2    | 2    | 2    | 2    |
+| **Halting & effortful**          | 2    | 1    | 1    | 1    | 1    | 2    |
+| **Reduced speech rate**          | 2    | 3    | 1    | 2    | 2    | 2    |
+| **Retracing**                    | 1    | 3    | 1    | 1    | 2    | 1    |
+| **False starts**                 | 1    | 2    | 1    | 1    | 2    | 1    |
+| **Conduite d’approche**          | 1    | 0    | 1    | 0    | 1    | 0    |
+| **Target unclear**               | 1    | 1    | 0    | 0    | 0    | 1    |
+| **Meaning unclear**              | 1    | 1    | 0    | 1    | 1    | 3    |
+| **Off-topic**                    | 0    | 0    | 0    | 0    | 0    | 1    |
+| **Expressive aphasia**           | 1    | 2    | 1    | 2    | 2    | 3    |
+| **Apraxia of speech**            | 2    | 1    | 1    | 1    | 1    | 2    |
+| **Dysarthria**                   | 1    | 0    | 0    | 0    | 0    | 0    |
+| **Overall communication impairment** | 2  | 2    | 1    | 2    | 2    | 3    |
+| **Sample duration (total; min:sec)** | 39:07 | 56:50 | 36:15 | 58:03 | 46:22 | 74:26 |
+| **Sample duration (analyzed; min:sec)** | 6:56 | 6:02 | 5:54 | 8:48 | 7:20 | 7:23 |
+
+Legend:
+- **0**: Not present  
+- **1**: Mild  
+- **2**: Moderate  
+- **3**: Marked  
+- **4**: Severe
+
+Reference: https://langneurosci.org/aprocsa-dataset/
+
+
+
+
+## 3. Word Error Rate (WER) improvement
+
+Define models + configuration
 - Whispers
+
+![chart1](https://github.com/user-attachments/assets/f4a4a7ea-4024-4707-a335-ae3877062e4b)
+
+![chart2](https://github.com/user-attachments/assets/2eb70464-f7fe-4453-9f5b-4a80a6fd4fa1)
+
+![chart3](https://github.com/user-attachments/assets/01d6a84a-6381-4894-979a-f87b45dd3dbc)
 - ASsembly
 - LLM
 
-## 3. Code for Human Analysis of Transcript (CHAT)
+## 4. Code for Human Analysis of Transcript (CHAT)
 
 ### 3.1 Diarization
 ### 3.2 
