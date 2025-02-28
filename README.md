@@ -136,22 +136,60 @@
 </table>
 
 
+## 1.3 Other Types of Signs in CHAT
 
+| Type of Sign                 | Example(s)                          | Description |
+|------------------------------|-------------------------------------|-------------|
+| **Simple Events**            | &=laughs, &=sneezes, &=yells        | Short non-verbal events occurring at a point in speech. |
+| **Imitations**               | &=imit:motor, &=imit:lion          | Vocal imitations of sounds (e.g., animal sounds, engine sounds). |
+| **Gestures**                 | &=ges:frustration, &=ges:ignore    | Non-verbal gestures indicating emotions or actions. |
+| **Actions on Objects**       | &=writes:dog, &=points:car         | Actions performed on objects, such as pointing, writing, or showing. |
+| **Body Movements**           | &=head:yes, &=mouth:open           | Body movements, including nodding, shaking, opening/closing eyes, etc. |
+| **Interposed Word**          | &*MOT:mhm                          | A word inserted by another speaker into the current speaker’s utterance. |
+| **Complex Local Events**     | [^ text]                           | Open-form descriptions of local events at a specific point. |
+| **Pauses**                   | (.), (..), (...)                   | Silent pauses of increasing duration. |
+| **Timed Pauses**             | (0.15), (1:05.15)                  | Pauses measured in seconds or minutes. |
+| **Long Vocal Events**        | &{l=laughs ... &}l=laughs          | Extended vocal events such as laughter over a duration. |
+| **Long Non-Vocal Events**    | &{n=waving:hands ... &}n=waving:hands | Extended non-verbal events such as hand-waving. |
+| **Trailing Off**             | +...                                | Incomplete utterance where the speaker trails off. |
+| **Trailing Off Question**    | +..?                                | An incomplete question where the speaker trails off. |
+| **Question with Exclamation**| +!?                                 | A question with strong emphasis or amazement. |
+| **Interruption**             | +/.                                 | An incomplete utterance due to interruption by another speaker. |
+| **Interrupted Question**     | +/?                                 | An interrupted question. |
+| **Self-Interruption**        | +//.                                | A speaker interrupts their own utterance to start a new one. |
+| **Self-Interrupted Question**| +//?                                | A self-interrupted utterance in the form of a question. |
+| **Transcription Break**      | +.                                  | A phrase boundary marking overlap. |
+| **Quotation Notation**       | +"/., +"., +", " "                 | Indicates quoted material in speech. |
+| **Quick Uptake**             | +^                                  | A fast response without a typical pause. |
+| **Self-Completion**          | +,                                  | A speaker completes their own interrupted utterance. |
+| **Other Completion**         | ++                                  | A second speaker completes another speaker’s utterance. |
+| **Explanations**              | [= closet]                           | Brief explanation about a word or phrase in the text. |
+| **Replacement**               | whyncha [: why don’t you]            | Replaces a nonstandard word with its standard equivalent for analysis. |
+| **Real Word Replacement**      | piece [:: peach] [*]                 | Used when a real word is incorrectly used instead of another real word. |
+| **Alternative Transcription**  | <one or two> [=? one too]            | Indicates an alternative possible transcription of the phrase. |
+| **Comment on Main Line**       | [% said with strong raising of eyebrows] | Allows for an in-line comment rather than a separate annotation. |
+| **Best Guess**                | frog [?]                             | Indicates uncertainty in transcription due to unclear audio. |
+| **Overlap Follows**           | <stop doing that> [>]                | Marks where the speaker’s utterance overlaps with another speaker’s speech. |
+| **Overlap Precedes**          | <Mommy I don’t like this> [<]        | Indicates that the utterance is overlapping with the preceding speaker’s speech. |
+| **Lazy Overlap**              | +<                                    | Marks an overlap without specifying its exact duration. |
+| **Repetition**                | <I wanted> [/] I wanted              | The speaker repeats a word or phrase without correction. |
+| **Retracing**                 | <I wanted> [//] I thought I wanted   | A speaker restarts a phrase with some corrections. |
+| **Reformulation**             | <all of my friends had> [///] we all decided | A complete reformulation of the message without simple correction. |
+| **False Start Without Retracing** | <I wanted> [/-] uh when is Margie coming? | Marks a false start where the speaker abandons the phrase entirely. |
+| **Unclear Retracing Type**    | [/?]                                 | Used when reformatting SALT files into CHAT format where retracings are ambiguous. |
+| **Excluded Material**         | <I think that maybe> [e]             | Marks material that should be excluded from certain analyses. |
+| **Clause Delimiter**          | [^c]                                 | Used to segment complex utterances into clauses. |
+| **Error Marking**             | goed [: went] [*]                    | Marks an error in word usage along with its correction. |
+| **Precodes (Language Switch)** | [- spa]                              | Marks a language switch in multilingual transcriptions. |
+| **Postcodes (Utterance-Level Tags)** | not this one. [+ neg] [+ req] [+ inc] | Customizable codes applied to entire utterances. |
+| **Excluded Utterance**        | just a moment. [+ bch]               | Marks utterances that should be excluded from analysis (e.g., background talk). |
+| **Included Utterance**        | 0. [+ trn]                           | Marks nonverbal utterances as turns for analysis. |
+| **[+ gram]** | wented [+ gram] | Marks a **grammatical error** in speech. |
+| **[+ per]** | I, I, I, I want it [+ per] | Indicates **perseveration**, where a word or phrase is **repeated excessively** beyond what is necessary. |
+| **[+ jar]** | blarfamadoo [+ jar] | Identifies **jargon**, speech that consists of **meaningless or unintelligible words**. |
+| **[+ cir]** | the thing that you use to eat soup [+ cir] | Marks **circumlocution**, where a speaker **describes** something instead of using the correct term. |
+| **[+ es]** | uh, um, you know, well [+ es] | Indicates **empty speech**, which consists of **filler words or phrases** that do not add meaningful content. |
 
-
-| Marker                | Meaning/Usage |
-|-----------------------|--------------|
-| **&-um, &-uh**       | Filled pauses; hesitation sounds commonly used while thinking. |
-| **(...) (..) (.)**   | Different lengths of pauses: short (.), medium (..), long (...). |
-| **an@q, the@q**      | Partial words or phonological distortions indicating difficulty with articulation. |
-| **[/]**              | Repetition; the speaker started to say something and repeated it. |
-| **[//]**             | Self-repair; the speaker corrected or rephrased a word or phrase. |
-| **[+ gram]**         | Indicates a grammatical issue in the utterance. |
-| **+=**               | Indicates non-verbal actions, such as gestures, facial expressions, or laughs. |
-| **&=throat:clears**  | Non-verbal vocalization, in this case, clearing the throat. other examples: &=laughs, &=points, &=shrugs, ...|
-| **&+m, &+tuz, &+we** | Phonetic approximations or distortions of words (e.g., "Tuesday" as "tuz"). |
-
-Page 45, 54, 55, 66, 67, 
 
 Reference: Tools for Analyzing Talk, Part 1: The CHAT Transcription Format, Brian MacWhinney, Carnegie Mellon University
 
