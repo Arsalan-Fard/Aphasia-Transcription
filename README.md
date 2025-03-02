@@ -284,12 +284,24 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
   <b>Figure 4:</b> Comparing a proprietary model with Whisper
 </p>
 
-## 3.3 LLM
+## 3.3 Error Analysis
+### 3.3.1 Mispronunciation [: ...] or mɝgɪnsɚ@u [: emergency]
+  Drive -> Jive
+  Bit -> but
+### 3.3.2 Retracing [//] + missings things that a person said.
+A speaker restarts a phrase with some corrections. 
+
+### 3.3.3 Shortenings
+
+### 3.3.4 [+ gram]
+
+### 3.3.5 Pauses? (...)  or Simple events like laugh
 
 ## 4. Code for Human Analysis of Transcript (CHAT)
 
-### 3.1 Diarization
-### 3.2 
+### 4.1 Diarization
+
+
 Activity detection?!
 
 
