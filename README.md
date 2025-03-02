@@ -193,7 +193,7 @@
 
 Reference: Tools for Analyzing Talk, Part 1: The CHAT Transcription Format, Brian MacWhinney, Carnegie Mellon University
 
-# 2. Patient Information
+# 2. Patients Information
 
 ## 2.1 Language Assessment Scores
 
@@ -257,14 +257,20 @@ Reference: https://langneurosci.org/aprocsa-dataset/
 ## 3. Word Error Rate (WER) improvement
 
 Define models + configuration
-- Whispers
+### 3.1 Whispers
 
-![chart1](https://github.com/user-attachments/assets/f4a4a7ea-4024-4707-a335-ae3877062e4b)
+Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implementation. The Faster Whisper configuration (temperature 0, beam size 1) resulted in the lowest Word Error Rate (WER).
 
-![chart2](https://github.com/user-attachments/assets/2eb70464-f7fe-4453-9f5b-4a80a6fd4fa1)
 
-![chart3](https://github.com/user-attachments/assets/01d6a84a-6381-4894-979a-f87b45dd3dbc)
-- ASsembly
+
+ <p align="center">
+  <img src="https://github.com/user-attachments/assets/f4a4a7ea-4024-4707-a335-ae3877062e4b" alt="Chart1" width="900">
+  <img src="https://github.com/user-attachments/assets/2eb70464-f7fe-4453-9f5b-4a80a6fd4fa1" alt="Chart2" width="900">
+  <img src="https://github.com/user-attachments/assets/01d6a84a-6381-4894-979a-f87b45dd3dbc" alt="Chart3" width="900">
+</p>
+
+
+- Assembly
 - LLM
 
 ## 4. Code for Human Analysis of Transcript (CHAT)
