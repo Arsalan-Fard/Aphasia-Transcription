@@ -263,11 +263,19 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
 
 
 
- <p align="center">
-  <img src="https://github.com/user-attachments/assets/f4a4a7ea-4024-4707-a335-ae3877062e4b" alt="Chart1" width="900">
-  <img src="https://github.com/user-attachments/assets/2eb70464-f7fe-4453-9f5b-4a80a6fd4fa1" alt="Chart2" width="900">
-  <img src="https://github.com/user-attachments/assets/01d6a84a-6381-4894-979a-f87b45dd3dbc" alt="Chart3" width="900">
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f4a4a7ea-4024-4707-a335-ae3877062e4b" alt="Chart1" width="900"><br>
+  <b>Figure 1:</b> Word Error Rate (WER) by Model and Dataset<br><br>
 </p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2eb70464-f7fe-4453-9f5b-4a80a6fd4fa1" alt="Chart2" width="900"><br>
+  <b>Figure 2:</b> Error Type Breakdown for largeV3<br><br>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/01d6a84a-6381-4894-979a-f87b45dd3dbc" alt="Chart3" width="900"><br>
+  <b>Figure 3:</b> Composition of Errors by Model and Dataset
+</p>
+
 
 
 - Assembly
