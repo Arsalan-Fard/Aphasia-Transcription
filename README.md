@@ -285,6 +285,14 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
 </p>
 
 ## 3.3 Error Analysis
+
+| Word       | behind | my   | front | door. | I    | opened | my   | doors | and  | I    | suddenly |
+|------------|--------|------|-------|-------|------|--------|------|-------|------|------|----------|
+| Start      | 10.10  | 12.30| 12.98 | 15.32 | 15.76| 15.90  | 15.90| 16.08 | 17.70| 19.12| 19.52    |
+| Probability| 0.705  | 0.929| 0.413 | 0.243 | 0.063| 0.682  | 0.988| 0.944 | 0.702| 0.910| 0.965    |
+| Phonemes   | bihaɪn|  mə  | fɹənd | -- | wʊm   | --  | maɪ  | dɑɝzɛnə  | ən   | aɪ   | sʌdənli  |
+| Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
+
 ### 3.3.1 Mispronunciation [: ...] or mɝgɪnsɚ@u [: emergency]
   Drive -> Jive
   Bit -> but
@@ -295,7 +303,9 @@ A speaker restarts a phrase with some corrections.
 
 ### 3.3.4 [+ gram]
 
-### 3.3.5 Pauses? (...)  or Simple events like laugh
+### 3.3.5 Pauses? (...)  
+
+### 3.3.6  Simple events like laugh
 
 ## 4. Code for Human Analysis of Transcript (CHAT)
 
