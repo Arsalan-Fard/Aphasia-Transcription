@@ -293,6 +293,9 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
 | Phonemes   | bihaɪn|  mə  | fɹənd | -- | wʊm   | --  | maɪ  | dɑɝzɛnə  | ən   | aɪ   | sʌdənli  |
 | Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
 
+![image](https://github.com/user-attachments/assets/288a2c0e-cad7-4e03-b77f-f0ca42a0df33)
+
+
 ### 3.3.1 Mispronunciation [: ...] or mɝgɪnsɚ@u [: emergency]
   Drive -> Jive
   Bit -> but
