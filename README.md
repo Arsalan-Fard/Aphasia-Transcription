@@ -1,5 +1,10 @@
 # Aphasia-Transcription
 
+Goals: 
+
+1. Better Word Error Rate (WER)
+2. Providing Code for Human Analysis Transcription (CHAT)
+
 ## 1. Non-Speech Markers in Transcription
 
 ## 1.1 CHAT Transcription Postcodes
@@ -256,7 +261,7 @@ Reference: https://langneurosci.org/aprocsa-dataset/
 
 ## 3. Word Error Rate (WER) improvement
 
-Define models + configuration
+
 ### 3.1 Whispers
 
 Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implementation. The Faster Whisper configuration (temperature 0, beam size 1) resulted in the lowest Word Error Rate (WER).
@@ -286,15 +291,11 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
 
 ## 3.3 Error Analysis
 
-| Word       | behind | my   | front | door. | I    | opened | my   | doors | and  | I    | suddenly |
-|------------|--------|------|-------|-------|------|--------|------|-------|------|------|----------|
-| Start      | 10.10  | 12.30| 12.98 | 15.32 | 15.76| 15.90  | 15.90| 16.08 | 17.70| 19.12| 19.52    |
-| Probability| 0.705  | 0.929| 0.413 | 0.243 | 0.063| 0.682  | 0.988| 0.944 | 0.702| 0.910| 0.965    |
-| Phonemes   | bihaɪn|  mə  | fɹənd | -- | wʊm   | --  | maɪ  | dɑɝzɛnə  | ən   | aɪ   | sʌdənli  |
-| Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
 
-![image](https://github.com/user-attachments/assets/288a2c0e-cad7-4e03-b77f-f0ca42a0df33)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/17570255-8c57-4c01-a091-56baf89b6d80" alt="Chart1" width="900"><br>
+  <b>Figure 5:</b> Methodology<br><br>
+</p>
 
 ### 3.3.1 Mispronunciation [: ...] or mɝgɪnsɚ@u [: emergency]
   Drive -> Jive
@@ -310,9 +311,24 @@ A speaker restarts a phrase with some corrections.
 
 ### 3.3.6  Simple events like laugh
 
-## 4. Code for Human Analysis of Transcript (CHAT)
+| Word       | behind | my   | front | door. | I    | opened | my   | doors | and  | I    | suddenly |
+|------------|--------|------|-------|-------|------|--------|------|-------|------|------|----------|
+| Start      | 10.10  | 12.30| 12.98 | 15.32 | 15.76| 15.90  | 15.90| 16.08 | 17.70| 19.12| 19.52    |
+| Probability| 0.705  | 0.929| 0.413 | 0.243 | 0.063| 0.682  | 0.988| 0.944 | 0.702| 0.910| 0.965    |
+| Phonemes   | bihaɪn|  mə  | fɹənd | -- | wʊm   | --  | maɪ  | dɑɝzɛnə  | ən   | aɪ   | sʌdənli  |
+| Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
 
-### 4.1 Diarization
+![image](https://github.com/user-attachments/assets/288a2c0e-cad7-4e03-b77f-f0ca42a0df33)
+![image](https://github.com/user-attachments/assets/b9aedf0a-7714-40e9-a831-8744268e224b)
+
+
+
+## 4. In progress
+### 4.1 Better Wav2Vec model
+### 4.2 Personalized Prompts for alignment
+### 4.3 Metadata from whisper like probability for words can be helpful. (word and its neighbor)
+
+
 
 
 Activity detection?!
