@@ -298,8 +298,11 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
   <b>Figure 5:</b> Methodology<br><br>
 </p>
 
-### 3.3.1 Mispronunciation [: ...] or mɝgɪnsɚ@u [: emergency]
+### 3.3.1 Mispronunciation 
+[: ...] or mɝgɪnsɚ@u [: emergency]
+
   Drive -> Jive
+  
   Bit -> but
 ### 3.3.2 Retracing [//] + Whisper misses things that a person said.
 A speaker restarts a phrase with some corrections. 
