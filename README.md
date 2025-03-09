@@ -288,6 +288,7 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
   <img src="https://github.com/user-attachments/assets/40f2198e-7b84-4bc6-aa5e-cbc50ffa2529" alt="Chart3" width="900"><br>
   <b>Figure 4:</b> Comparing a proprietary model with Whisper
 </p>
+** Fine-tuned model on 1554: WER: 17%
 
 ## 3.3 Error Analysis
 
