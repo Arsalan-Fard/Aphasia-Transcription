@@ -301,8 +301,10 @@ Evaluated Whisper Large-V3 and Base models, including a Faster Whisper implement
 ### 3.3.1 Mispronunciation [: ...] or mɝgɪnsɚ@u [: emergency]
   Drive -> Jive
   Bit -> but
-### 3.3.2 Retracing [//] + missings things that a person said.
+### 3.3.2 Retracing [//] + Whisper misses things that a person said.
 A speaker restarts a phrase with some corrections. 
+Example:  Tue- Tuesday Wed Wednesday.
+the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 ### 3.3.3 Shortenings
 
@@ -332,6 +334,5 @@ A speaker restarts a phrase with some corrections.
 
 
 
-Activity detection?!
 
 
