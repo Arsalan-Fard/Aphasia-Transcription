@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/e60c0be3-9f84-478d-b49a-0159255dea3a)# Aphasia-Transcription
+# Aphasia-Transcription
 
 Goals: 
 
@@ -362,8 +362,13 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 # 5.2 Detection
 
-** how many of [+gram] errors do exist in two transcriptions. (Exact match)
+** how many of [+gram] errors do exist in two transcriptions. (Exact match) --> consider ablation as well
 ** LLM FP,TP,... on the ground truth.
+
+** same for [:...]
+
+**same for [+ per] [+ jar] [+ cir] [+ es]
+
 
 **evaluation
 
