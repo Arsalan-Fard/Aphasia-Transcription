@@ -1,9 +1,10 @@
-# Aphasia-Transcription
+![image](https://github.com/user-attachments/assets/e60c0be3-9f84-478d-b49a-0159255dea3a)# Aphasia-Transcription
 
 Goals: 
 
-1. Better Word Error Rate (WER)
-2. Providing Code for Human Analysis Transcription (CHAT)
+1. Better Word Error Rate (WER) 
+2. Addressing critical mistranscriptions and hallucination
+3. Speech Analysis prototype.
 
 ## 1. Non-Speech Markers in Transcription
 
@@ -329,10 +330,47 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 
 
-## 4. In progress
-### 4.1 Better Wav2Vec model
-### 4.2 Personalized Prompts for alignment
-### 4.3 Metadata from whisper like probability for words can be helpful. (word and its neighbor)
+# 4. Addressing critical mistranscription and hallucination
+
+
+## 4.1 Approaches:
+- Using Silero Voice Activity Detection (VAD) can reduce hallucination rate to 0. However, it will remove some of the speech, specifically for the aphasic users.
+- Bag of Hallucinations? (blacklisting certain phrases like: “thank you for watching”)
+- Confidence-Based Hallucination Detection Techniques
+- Wav2Vec (phoneme Transcription)
+
+## 4.2 Confidence-Based Hallucination Detection Techniques
+
+### 4.2.1 How it works
+
+### 4.2.2 Evaluation
+
+***list of 100 words with critical mistranscription
+**FP,TP ...
+
+## 4.3 Wav2Vec Phoneme Transcription
+
+### 4.3.1 How it works
+
+### 4.3.2 Evaluation
+
+**FP,TP ...
+
+# 5. Speech recovery assistant
+
+# 5.1 Type of issues
+
+# 5.2 Detection
+
+** how many of [+gram] errors do exist in two transcriptions. (Exact match)
+** LLM FP,TP,... on the ground truth.
+
+**evaluation
+
+
+
+
+
 
 
 
