@@ -328,11 +328,16 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 ![image](https://github.com/user-attachments/assets/288a2c0e-cad7-4e03-b77f-f0ca42a0df33)
 ![image](https://github.com/user-attachments/assets/b9aedf0a-7714-40e9-a831-8744268e224b)
 
+### 3.3.7 Fine-tuned model result
+
+![{3DB57848-3199-4231-8A8D-B064B2A34F9B}](https://github.com/user-attachments/assets/d69006e5-68ca-46c2-8ba9-643cb35a4c9a)
+
+![{A8B8F06C-4A49-4C9E-9F15-82A56816C983}](https://github.com/user-attachments/assets/10ee794f-e2ea-408b-aa4a-48e03f85ac8f)
 
 
 # 4. Addressing critical mistranscription and hallucination
 
-
+('its', 'as'), ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
 ## 4.1 Approaches:
 - Using Silero Voice Activity Detection (VAD) can reduce hallucination rate to 0. However, it will remove some of the speech, specifically for the aphasic users.
 - Bag of Hallucinations? (blacklisting certain phrases like: “thank you for watching”)
