@@ -338,6 +338,8 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 # 4. Addressing critical mistranscription and hallucination
 
 ('its', 'as'), ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
+
+**while false-positive is still high -> we can search for dangerous ones
 ## 4.1 Approaches:
 - Using Silero Voice Activity Detection (VAD) can reduce hallucination rate to 0. However, it will remove some of the speech, specifically for the aphasic users.
 - Bag of Hallucinations? (blacklisting certain phrases like: “thank you for watching”)
