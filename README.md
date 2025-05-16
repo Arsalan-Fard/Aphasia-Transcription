@@ -361,23 +361,24 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 ### 4.3.2 Evaluation
 
-**FP,TP ...
+![image](https://github.com/user-attachments/assets/8403be98-1951-45a6-a6e1-646e2aca6373)
+
+![{FF6F45C6-6686-4F6C-A80D-098F1676D564}](https://github.com/user-attachments/assets/74e7167e-d2dc-427c-a97f-73dc7ccc7099)
 
 # 5. Speech recovery assistant
 
 # 5.1 Type of issues
-
+["[+ gram]", "[: word]", "[/]", "[//]", "[///]", "[+ es]", "[+ per]", "[+ jar]", "[+ cir]", "[+ es]"]
 # 5.2 Detection
-
-** how many of [+gram] errors do exist in two transcriptions. (Exact match) --> consider ablation as well
-** LLM FP,TP,... on the ground truth.
-
-** same for [:...]
-
-**same for [+ per] [+ jar] [+ cir] [+ es]
+![image](https://github.com/user-attachments/assets/0dbd447f-8216-4160-8e9b-cf5d877da4e9)
 
 
-**evaluation
+
+![{B3A2233A-E601-4CE7-B12F-F6E9222206FC}](https://github.com/user-attachments/assets/8232eba2-7f4e-4d5b-89da-be205cd71e6a)
+
+![{951DBC82-D809-4C1D-AC1D-CC1747BF500C}](https://github.com/user-attachments/assets/a5a90a32-9d74-4686-9b23-1e027a2e446b)
+
+
 
 
 
