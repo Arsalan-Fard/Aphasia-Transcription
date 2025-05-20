@@ -355,9 +355,11 @@ https://github.com/TalkBank/batchalign2
 - Bag of Hallucinations? (blacklisting certain phrases like: “thank you for watching”)
 - Confidence-Based Hallucination Detection Techniques
 - Wav2Vec (phoneme Transcription)
-![image](https://github.com/user-attachments/assets/2ed775ce-4e0a-4ea2-9fec-aa603ab5c95d)
-![image](https://github.com/user-attachments/assets/20467395-3ae2-4d19-b29a-39daf6777689)
-![image](https://github.com/user-attachments/assets/2a22674c-ce16-4b97-a1fa-0afe16892b51)
+
+![image](https://github.com/user-attachments/assets/b91d1545-4110-4561-a53f-3af207b8f990)
+![image](https://github.com/user-attachments/assets/1723caec-99bb-46b8-afb3-aa6300212e00)
+![image](https://github.com/user-attachments/assets/2bf43c2d-49f8-40f9-985f-411c91053a44)
+
 
  | Word       | behind | my   | front | door. | I    | opened | my   | doors | and  | I    | suddenly |
 |------------|--------|------|-------|-------|------|--------|------|-------|------|------|----------|
