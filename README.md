@@ -340,9 +340,7 @@ https://github.com/TalkBank/batchalign2
 
 
 # 4. Addressing critical mistranscription and hallucination
-![image](https://github.com/user-attachments/assets/2ed775ce-4e0a-4ea2-9fec-aa603ab5c95d)
-![image](https://github.com/user-attachments/assets/20467395-3ae2-4d19-b29a-39daf6777689)
-![image](https://github.com/user-attachments/assets/2a22674c-ce16-4b97-a1fa-0afe16892b51)
+
 
 ('its', 'as'), ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
 
@@ -352,12 +350,11 @@ https://github.com/TalkBank/batchalign2
 - Bag of Hallucinations? (blacklisting certain phrases like: “thank you for watching”)
 - Confidence-Based Hallucination Detection Techniques
 - Wav2Vec (phoneme Transcription)
+![image](https://github.com/user-attachments/assets/2ed775ce-4e0a-4ea2-9fec-aa603ab5c95d)
+![image](https://github.com/user-attachments/assets/20467395-3ae2-4d19-b29a-39daf6777689)
+![image](https://github.com/user-attachments/assets/2a22674c-ce16-4b97-a1fa-0afe16892b51)
 
-## 4.2 Confidence-Based Hallucination Detection Techniques
-
-### 4.2.1 How it works
-
-### 4.2.2 Evaluation
+ 
 
 ***list of 100 words with critical mistranscription
 **FP,TP ...
@@ -367,10 +364,7 @@ https://github.com/TalkBank/batchalign2
 ### 4.3.1 How it works
 
 ### 4.3.2 Evaluation
-
-![image](https://github.com/user-attachments/assets/8403be98-1951-45a6-a6e1-646e2aca6373)
-
-![{FF6F45C6-6686-4F6C-A80D-098F1676D564}](https://github.com/user-attachments/assets/74e7167e-d2dc-427c-a97f-73dc7ccc7099)
+![image](https://github.com/user-attachments/assets/4a072a18-881a-4a8b-9d49-25f420ef38ce)
 
 # 5. Speech recovery assistant
 
