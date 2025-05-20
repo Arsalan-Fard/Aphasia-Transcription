@@ -6,6 +6,13 @@ Goals:
 2. Addressing critical mistranscriptions and hallucination
 3. Speech Analysis prototype.
 
+Transcript Example:
+
+ well ‡ <I got> [/] &-um I (.) got up to check the laundry.
+ 
+ they're [//] they mob control . [+ gram]
+
+ Santa cause [: Clause]
 ## 1. Non-Speech Markers in Transcription
 
 ## 1.1 CHAT Transcription Postcodes
