@@ -328,7 +328,11 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 ![image](https://github.com/user-attachments/assets/288a2c0e-cad7-4e03-b77f-f0ca42a0df33)
 ![image](https://github.com/user-attachments/assets/b9aedf0a-7714-40e9-a831-8744268e224b)
 
+
 ### 3.3.7 Fine-tuned model result
+https://github.com/TalkBank/batchalign2
+
+![{B0E4B669-2E1C-4CD6-B2BB-61F8D35D88F6}](https://github.com/user-attachments/assets/4854d848-9878-4303-b068-8f8b0157fe1f)
 
 ![{3DB57848-3199-4231-8A8D-B064B2A34F9B}](https://github.com/user-attachments/assets/d69006e5-68ca-46c2-8ba9-643cb35a4c9a)
 
@@ -336,6 +340,9 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 
 # 4. Addressing critical mistranscription and hallucination
+![image](https://github.com/user-attachments/assets/2ed775ce-4e0a-4ea2-9fec-aa603ab5c95d)
+![image](https://github.com/user-attachments/assets/20467395-3ae2-4d19-b29a-39daf6777689)
+![image](https://github.com/user-attachments/assets/2a22674c-ce16-4b97-a1fa-0afe16892b51)
 
 ('its', 'as'), ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
 
