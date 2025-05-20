@@ -2,9 +2,7 @@
 
 Goals: 
 
-1. Better Word Error Rate (WER) 
-2. Addressing critical mistranscriptions and hallucination
-3. Speech Analysis prototype.
+1. Speech Analysis prototype.
 
 Transcript Example:
 
@@ -13,6 +11,11 @@ Transcript Example:
  they're [//] they mob control . [+ gram]
 
  Santa cause [: Clause]
+ 
+2. Better Word Error Rate (WER).
+3. Addressing critical mistranscriptions and hallucination.
+
+
 ## 1. Non-Speech Markers in Transcription
 
 ## 1.1 CHAT Transcription Postcodes
@@ -325,12 +328,6 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 ### 3.3.6  Simple events like laugh
 
-| Word       | behind | my   | front | door. | I    | opened | my   | doors | and  | I    | suddenly |
-|------------|--------|------|-------|-------|------|--------|------|-------|------|------|----------|
-| Start      | 10.10  | 12.30| 12.98 | 15.32 | 15.76| 15.90  | 15.90| 16.08 | 17.70| 19.12| 19.52    |
-| Probability| 0.705  | 0.929| 0.413 | 0.243 | 0.063| 0.682  | 0.988| 0.944 | 0.702| 0.910| 0.965    |
-| Phonemes   | bihaɪn|  mə  | fɹənd | -- | wʊm   | --  | maɪ  | dɑɝzɛnə  | ən   | aɪ   | sʌdənli  |
-| Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
 
 ![image](https://github.com/user-attachments/assets/288a2c0e-cad7-4e03-b77f-f0ca42a0df33)
 ![image](https://github.com/user-attachments/assets/b9aedf0a-7714-40e9-a831-8744268e224b)
@@ -338,8 +335,9 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 
 ### 3.3.7 Fine-tuned model result
 https://github.com/TalkBank/batchalign2
+![{34625093-8A5D-426F-BA97-B6D2DC5E5931}](https://github.com/user-attachments/assets/21ef66d1-0c34-4eaf-8319-bcc3627b9193)
 
-![{B0E4B669-2E1C-4CD6-B2BB-61F8D35D88F6}](https://github.com/user-attachments/assets/4854d848-9878-4303-b068-8f8b0157fe1f)
+
 
 ![{3DB57848-3199-4231-8A8D-B064B2A34F9B}](https://github.com/user-attachments/assets/d69006e5-68ca-46c2-8ba9-643cb35a4c9a)
 
@@ -361,7 +359,13 @@ https://github.com/TalkBank/batchalign2
 ![image](https://github.com/user-attachments/assets/20467395-3ae2-4d19-b29a-39daf6777689)
 ![image](https://github.com/user-attachments/assets/2a22674c-ce16-4b97-a1fa-0afe16892b51)
 
- 
+ | Word       | behind | my   | front | door. | I    | opened | my   | doors | and  | I    | suddenly |
+|------------|--------|------|-------|-------|------|--------|------|-------|------|------|----------|
+| Start      | 10.10  | 12.30| 12.98 | 15.32 | 15.76| 15.90  | 15.90| 16.08 | 17.70| 19.12| 19.52    |
+| Probability| 0.705  | 0.929| 0.413 | 0.243 | 0.063| 0.682  | 0.988| 0.944 | 0.702| 0.910| 0.965    |
+| Phonemes   | bihaɪn|  mə  | fɹənd | -- | wʊm   | --  | maɪ  | dɑɝzɛnə  | ən   | aɪ   | sʌdənli  |
+| Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
+
 
 ***list of 100 words with critical mistranscription
 **FP,TP ...
