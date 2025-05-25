@@ -343,7 +343,7 @@ Goals:
 
 Transcript Example in this format: Code for Human Analysis Transcript (CHAT)
 
- well <I got> [/] &-um I (.) got up to check the laundry.
+ well I got [/] &-um I (.) got up to check the laundry.
  
  they're [//] they mob control . [+ gram]
 
