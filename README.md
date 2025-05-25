@@ -376,6 +376,7 @@ https://github.com/TalkBank/batchalign2
 
 ### 4.3.2 Evaluation
 ![image](https://github.com/user-attachments/assets/4a072a18-881a-4a8b-9d49-25f420ef38ce)
+
 **Considering serious mistranscriptions:
 ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
 
@@ -384,11 +385,9 @@ https://github.com/TalkBank/batchalign2
 # 5.1 Type of issues
 ["[+ gram]", "[: word]", "[/]", "[//]", "[///]", "[+ es]", "[+ per]", "[+ jar]", "[+ cir]", "[+ es]"]
 # 5.2 Detection
-![image](https://github.com/user-attachments/assets/0dbd447f-8216-4160-8e9b-cf5d877da4e9)
+![image](https://github.com/user-attachments/assets/8b2b6c22-44a8-4dff-a43b-db2d542a2f5d)
 
-
-
-![{B3A2233A-E601-4CE7-B12F-F6E9222206FC}](https://github.com/user-attachments/assets/8232eba2-7f4e-4d5b-89da-be205cd71e6a)
+![image](https://github.com/user-attachments/assets/49800ea5-dc0e-44a8-af24-3c077a814af4)
 
 ![{951DBC82-D809-4C1D-AC1D-CC1747BF500C}](https://github.com/user-attachments/assets/a5a90a32-9d74-4686-9b23-1e027a2e446b)
 
