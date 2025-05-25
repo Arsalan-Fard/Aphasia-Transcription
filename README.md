@@ -347,7 +347,6 @@ https://github.com/TalkBank/batchalign2
 # 4. Addressing critical mistranscription and hallucination
 
 
-('its', 'as'), ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
 
 **while false-positive is still high -> we can search for dangerous ones
 ## 4.1 Approaches:
@@ -369,7 +368,6 @@ https://github.com/TalkBank/batchalign2
 | Correction | behind | my | friend | -- | of | -- | my | daughter | and | I | suddenly |
 
 
-***list of 100 words with critical mistranscription
 **FP,TP ...
 
 ## 4.3 Wav2Vec Phoneme Transcription
@@ -378,6 +376,8 @@ https://github.com/TalkBank/batchalign2
 
 ### 4.3.2 Evaluation
 ![image](https://github.com/user-attachments/assets/4a072a18-881a-4a8b-9d49-25f420ef38ce)
+**Considering serious mistranscriptions:
+('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
 
 # 5. Speech recovery assistant
 
