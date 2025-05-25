@@ -2,17 +2,18 @@
 
 Goals: 
 
-1. Speech Analysis prototype.
+1. Speech Analysis prototype. Can LLM do that?
 
-Transcript Example:
+Transcript Example in this format: Code for Human Analysis Transcript (CHAT)
 
- well ‡ <I got> [/] &-um I (.) got up to check the laundry.
+ well <I got> [/] &-um I (.) got up to check the laundry.
  
  they're [//] they mob control . [+ gram]
 
- Santa cause [: Clause]
+ Santa cause [: Claus]
  
 2. Better Word Error Rate (WER).
+  
 3. Addressing critical mistranscriptions and hallucination.
 
 
@@ -333,30 +334,54 @@ the [//] &-um she [//] &-um &-uh &+f a fairy godmother come.
 ![image](https://github.com/user-attachments/assets/b9aedf0a-7714-40e9-a831-8744268e224b)
 
 
-### 3.3.7 Fine-tuned model result
-https://github.com/TalkBank/batchalign2
+
+# Aphasia-Transcription
+
+Goals: 
+
+1. Speech Analysis prototype. Can LLM do that?
+
+Transcript Example in this format: Code for Human Analysis Transcript (CHAT)
+
+ well <I got> [/] &-um I (.) got up to check the laundry.
+ 
+ they're [//] they mob control . [+ gram]
+
+ Santa cause [: Claus]
+
+ (some efforts in https://github.com/TalkBank/batchalign2)
+ 
+2. Better Word Error Rate (WER).
+  
+3. Addressing critical mistranscriptions and hallucination.
+
+
+# 1. Fine-tuned model result
+
 ![{34625093-8A5D-426F-BA97-B6D2DC5E5931}](https://github.com/user-attachments/assets/21ef66d1-0c34-4eaf-8319-bcc3627b9193)
 
-
+Tiny-C, Large-c3-C, and Large-FT-C are Configured to have beamsize=1, temperature = 0, and converted to Ctranslate version and their computing type is fp16.
 
 ![{3DB57848-3199-4231-8A8D-B064B2A34F9B}](https://github.com/user-attachments/assets/d69006e5-68ca-46c2-8ba9-643cb35a4c9a)
 
-![{A8B8F06C-4A49-4C9E-9F15-82A56816C983}](https://github.com/user-attachments/assets/10ee794f-e2ea-408b-aa4a-48e03f85ac8f)
+![image](https://github.com/user-attachments/assets/a3527619-8c4c-4021-a5ca-1f4d42fd5429)
 
-
-# 4. Addressing critical mistranscription and hallucination
+# 2. Addressing critical mistranscription and hallucination
 
 
 
 **while false-positive is still high -> we can search for dangerous ones
-## 4.1 Approaches:
+## 2.1 Approaches:
 - Using Silero Voice Activity Detection (VAD) can reduce hallucination rate to 0. However, it will remove some of the speech, specifically for the aphasic users.
 - Bag of Hallucinations? (blacklisting certain phrases like: “thank you for watching”)
 - Confidence-Based Hallucination Detection Techniques
 - Wav2Vec (phoneme Transcription)
-
+___________________
+Probability distribution for words which are in the "insertion, substitution, deletion" list.
 ![image](https://github.com/user-attachments/assets/b91d1545-4110-4561-a53f-3af207b8f990)
 ![image](https://github.com/user-attachments/assets/1723caec-99bb-46b8-afb3-aa6300212e00)
+
+Post-processing with LLMs shouldn't be on all of the transcript, otherwise it generates so many False Positives.
 ![image](https://github.com/user-attachments/assets/2bf43c2d-49f8-40f9-985f-411c91053a44)
 
 
@@ -370,32 +395,35 @@ https://github.com/TalkBank/batchalign2
 
 **FP,TP ...
 
-## 4.3 Wav2Vec Phoneme Transcription
+## 2.3 Wav2Vec Phoneme Transcription
 
-### 4.3.1 How it works
+### 2.3.1 How it works
 
-### 4.3.2 Evaluation
-![image](https://github.com/user-attachments/assets/4a072a18-881a-4a8b-9d49-25f420ef38ce)
+### 2.3.2 Evaluation
+![image](https://github.com/user-attachments/assets/9e5f89f3-6a54-4dd8-be67-fa29a8e944f2)
+
+![image](https://github.com/user-attachments/assets/b39a3c2e-9fd8-4eb2-a5ff-b25e7429fef1)
 
 **Considering serious mistranscriptions:
 ('fair', 'there'), ('redondo', 'regina'),  ('busy', 'basically'), ('ladder', 'letter'),  ('ladder', 'water'), ...
+--Automatically detecting these kind of words?!?!
 
-# 5. Speech recovery assistant
+# 3. Speech recovery assistant
 
-# 5.1 Type of issues
+# 3.1 Type of issues
 ["[+ gram]", "[: word]", "[/]", "[//]", "[///]", "[+ es]", "[+ per]", "[+ jar]", "[+ cir]", "[+ es]"]
-# 5.2 Detection
+# 3.2 Detection
 ![image](https://github.com/user-attachments/assets/8b2b6c22-44a8-4dff-a43b-db2d542a2f5d)
 
 ![image](https://github.com/user-attachments/assets/49800ea5-dc0e-44a8-af24-3c077a814af4)
 
-![{9F859424-B311-4B4A-9B8E-17E5D5F4B369}](https://github.com/user-attachments/assets/a6626e3f-aa50-4e40-be07-0d6446978083)
+![{9C58C641-D84F-46BD-8859-99FDC376806C}](https://github.com/user-attachments/assets/5bf6c34a-e2f3-4aad-94c4-6ced18934ef1)
 
 
 
 
 
-
+****Last Idea to test: Gemini-2.5-Transcribe can take Wav2Vec Transcribe with the audio.
 
 
 
