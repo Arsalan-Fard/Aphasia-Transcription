@@ -389,7 +389,7 @@ https://github.com/TalkBank/batchalign2
 
 ![image](https://github.com/user-attachments/assets/49800ea5-dc0e-44a8-af24-3c077a814af4)
 
-![{951DBC82-D809-4C1D-AC1D-CC1747BF500C}](https://github.com/user-attachments/assets/a5a90a32-9d74-4686-9b23-1e027a2e446b)
+![{9F859424-B311-4B4A-9B8E-17E5D5F4B369}](https://github.com/user-attachments/assets/a6626e3f-aa50-4e40-be07-0d6446978083)
 
 
 
