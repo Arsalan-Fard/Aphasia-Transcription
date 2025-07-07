@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Waveform Player</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/6.6.3/wavesurfer.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .upload-area {
+            width: 700px;
+            border: 2px dashed #666;
+            margin-right: -40px;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .upload-area:hover {
+            background-color: #333;
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            margin-bottom: 10px;
+        }
+
+        .upload-divider {
+            margin: 15px 0;
+            color: #888;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .player-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .waveform {
+            margin: 20px 0;
+            background-color: #333;
+            border-radius: 4px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .controls button {
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+
+        .controls button:hover {
+            background-color: #666;
+        }
+
+        .controls .play-pause {
+            background-color: #ff7b00;
+            width: 50px;
+            height: 50px;
+        }
+
+        .controls .play-pause:hover {
+            background-color: #ff9900;
+        }
+
+        .controls .transcribe, .controls .play-transcription {
+            background-color: #ff7b00;
+            border-radius: 4px;
+            width: auto;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .controls .transcribe:hover, .controls .play-transcription:hover {
+            background-color: #ff7b00;
+        }
+
+        .file-name {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+
+        .upload-new {
+            background-color: transparent;
+            color: #ff7b00;
+            border: 1px solid #ff7b00;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px auto 0 auto; /* Centers horizontally, keeps 20px top margin */
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            display: block; /* Ensure it's a block element for margin auto to work */
+        }
+
+        .upload-new:hover {
+            background-color: rgba(255, 123, 0, 0.1);
+        }
+        
+        .transcription-container {
+            margin-top: 20px;
+            width:97.5%;
+            min-height: 100px;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            overflow-y: auto;
+            line-height: 1.4;
+            white-space: pre-wrap;
+        }
+
+        /* Special styling for "[+ gram]" words */
+        .highlighted-word {
+            display: inline-block;
+            border: 1px solid #1e90ff;
+            background-color: rgba(30, 144, 255, 0.35);
+            color: #60b0ff;
+            border-radius: 3px;
+            padding: 2px 5px;
+            margin: 0 2px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .content-div {
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: -12px;
+        }
+        
+        .content-div p {
+            margin: 0;
+            letter-spacing: 0.02em;
+        }
+
+        .highlighted-word:hover {
+            background-color: rgba(30, 144, 255, 0.3);
+            transform: scale(1.05);
+        }
+        #btn-utterance:hover {
+            background-color: rgba(124, 58, 237,0.1) !important;
+        }
+        #btn-grammar:hover {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+        }
+        #btn-repetition:hover {
+            background-color: rgba(147, 51, 234,0.1) !important;
+        }
+        #btn-correction:hover {
+            background-color: rgba(194, 65, 12,0.1) !important;
+        }
+        #btn-pauses:hover {
+            background-color: rgba(234, 88, 12, 0.1) !important;
+        } 
+        .grammar-note { 
+            color:#3b82f6; 
+            font-style:italic;
+            display: inline-block;
+            border: 1px solid #1e90ff;
+            background-color: rgba(30, 144, 255, 0.15);
+            color: #60b0ff;
+            border-radius: 3px;
+            padding: 2px 4px;
+            margin: 0 2px;
+            font-weight: 500;
+            transition: all 0.3s ease; 
+        }
+        .utterance-note { 
+            color:rgb(124, 58, 237); 
+            font-style:italic;
+            display: inline-block;
+            border: 1px solid rgb(124, 58, 237);
+            background-color: rgba(124, 58, 237, 0.15);
+            border-radius: 3px;
+            padding: 2px 4px;
+            margin: 0 2px;
+            font-weight: 500;
+            transition: all 0.3s ease; 
+        }
+
+        .correction-note { 
+            color:rgb(194, 65, 12);
+            font-style:italic;
+            display: inline-block;
+            border: 1px solid rgb(194, 65, 12);
+            background-color: rgba(194, 65, 12, 0.15);
+            border-radius: 3px;
+            padding: 2px 4px;
+            margin: 0 2px;
+            font-weight: 500;
+            transition: all 0.3s ease; 
+        }
+
+    </style>
+</head>
+<body>
+    <div >
+    <div class="content-div"  style="text-align: center; margin-bottom: 20px;  font-size: 36px;"> 
+      <p>Aphasia Speech Transcription</p>
+    </div>
+    <div class="container">
+        <div id="upload-area" class="upload-area">
+            <div class="upload-icon">⬆️</div>
+            <div class="upload-text">Drop Audio Here</div>
+            <div class="upload-divider">- or -</div>
+            <button id="browse-button">Click to Upload</button>
+            <input type="file" id="file-input" class="file-input" accept="audio/*">
+        </div>
+
+        <div id="player-container" class="player-container">
+            <div id="file-name" class="file-name"></div>
+            <div id="waveform" class="waveform"></div>
+            <div class="time-display">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            
+            <div style="margin-top: -10px;" class="controls">
+                <button id="backward"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5"></line></svg></button>
+                <button id="play-pause" class="play-pause"><svg id="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>
+                <button id="forward"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg></button>
+                <button id="transcribe" class="transcribe">Transcribe</button>
+                <button id="play-transcription" class="play-transcription">Play Transcription</button>
+            </div>
+            <div class="content-div"> <p>Raw Transcript </p></div>
+            <div id="transcription-container" class="transcription-container"></div>
+            
+            <div style="margin-top:15px;" class="content-div"> <p>Analyzed Transcript </p></div>
+
+            <div id="analyzed-container" class="transcription-container"></div>
+            <div class="controls" style="justify-content: flex-start; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                <button id="btn-analyze" style="margin-left: 10px; margin-right: 10px; width: 210px;" class="transcribe">Analyze</button>
+                <button id="btn-grammar"  style="border: 1px solid #3b82f6; color: #3b82f6;  background-color: transparent;" class="transcribe">Grammar</button>
+                <button id="btn-utterance"  style="border: 1px solid #7c3aed; color: #7c3aed; background-color: transparent;" class="transcribe">Utterance</button>
+                <button id="btn-repetition"  style="border: 1px solid #9333ea; color: #9333ea; background-color: transparent;"  class="transcribe">Repetitions</button>
+                <button id="btn-correction"  style="border: 1px solid #c2410c; color: #c2410c; background-color: transparent;" class="transcribe">Word Correction</button>
+                <button id="btn-pauses" style="border: 1px solid #ea580c; color: #ea580c; background-color: transparent;" class="transcribe">Pauses</button>
+            </div>
+            <div style="margin-top: 25px;"><button id="upload-new"  class="upload-new">✖</button></div>
+            
+        </div>
+    </div>
+</div>
+
+    <script>
+        // DOM elements
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('file-input');
+        const browseButton = document.getElementById('browse-button');
+        const playerContainer = document.getElementById('player-container');
+        const playPauseButton = document.getElementById('play-pause');
+        const playIcon = document.getElementById('play-icon');
+        const forwardButton = document.getElementById('forward');
+        const backwardButton = document.getElementById('backward');
+        const fileNameDisplay = document.getElementById('file-name');
+        const currentTimeDisplay = document.getElementById('current-time');
+        const durationDisplay = document.getElementById('duration');
+        const uploadNewButton = document.getElementById('upload-new');
+        const transcribeButton = document.getElementById('transcribe');
+        const playTranscriptionButton = document.getElementById('play-transcription');
+        const transcriptionContainer = document.getElementById('transcription-container');
+        const analyzedContainer = document.getElementById('analyzed-container');
+
+        // WaveSurfer instance and other variables
+        let analyzedRaw   = '';     // full text that comes back from /analyze
+        let grammarShown  = false;  // off by default – toggled by Grammar button
+        let utteranceShown  = false;  // off by default
+        let correctionShown  = false;  // off by default
+        let wavesurfer = null;
+        let currentFile = null;
+        let wordList = null;
+        let dialogueText = '';  
+        let transcriptionInterval = null;
+        let isTranscriptionPlaying = false;
+
+        // Initialize WaveSurfer
+        function initWaveSurfer() {
+            wavesurfer = WaveSurfer.create({
+                container: '#waveform',
+                waveColor: '#888',
+                progressColor: '#ff7b00',
+                cursorColor: '#fff',
+                barWidth: 2,
+                barGap: 1,
+                responsive: true,
+                height: 80,
+                barRadius: 2
+            });
+
+            wavesurfer.on('ready', () => {
+                const duration = formatTime(wavesurfer.getDuration());
+                durationDisplay.textContent = duration;
+                playPauseButton.disabled = false;
+            });
+
+            wavesurfer.on('audioprocess', () => {
+                currentTimeDisplay.textContent = formatTime(wavesurfer.getCurrentTime());
+            });
+
+            wavesurfer.on('play', () => {
+                playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+            });
+
+            wavesurfer.on('pause', () => {
+                playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+            });
+
+            wavesurfer.on('finish', () => {
+                playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+            });
+        }
+
+        // Format time in seconds to MM:SS format
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secondsRemainder = Math.round(seconds) % 60;
+            const paddedSeconds = secondsRemainder.toString().padStart(2, '0');
+            return `${minutes}:${paddedSeconds}`;
+        }
+
+        // Handle file selection
+        function handleFile(file) {
+            if (!file.type.startsWith('audio/')) {
+                alert('Please select an audio file.');
+                return;
+            }
+
+            currentFile = file;
+
+            if (!wavesurfer) {
+                initWaveSurfer();
+            } else {
+                wavesurfer.empty();
+            }
+
+            fileNameDisplay.textContent = file.name;
+            uploadArea.style.display = 'none';
+            playerContainer.style.display = 'block';
+            transcriptionContainer.innerHTML = '';
+            wordList = null;
+            dialogueText = '';
+            stopTranscription();
+
+            wavesurfer.loadBlob(file);
+        }
+
+        // Apply special styling to "[+ gram]" words
+        function formatWord(word) {
+            if (word.includes("[+ gram]")) {
+                // Remove the [+ gram] annotation from display text but keep the highlighting
+                //const cleanWord = word.replace("[+ gram]", "").trim();
+                return `<span class="highlighted-word">${word.trim()}</span>`;
+            } else {
+                return word;
+            }
+        }
+
+        function buildSpeakerText(words) {
+            let out = [];
+            let curSpeaker = null;
+
+            words.forEach(({ word, speaker }) => {
+                // new speaker?  → start new line with label
+                if (speaker !== curSpeaker) {
+                    curSpeaker = speaker;
+                    const label = `S${parseInt(curSpeaker.split('_').pop())}:`;
+                    out.push('\n' + label);          // newline first (ignored if first)
+                }
+
+                // punctuation sticks to previous token
+                if (".,;?!:".includes(word[0]) && out.length) {
+                    out[out.length - 1] += word;
+                } else {
+                    out.push(formatWord(word));
+                }
+            });
+
+            return out.join(' ').trim();
+        }
+
+
+        // Display transcription based on audio time
+       function displayTranscription() {
+            if (!wordList || !isTranscriptionPlaying) return;
+                
+            const now   = wavesurfer.getCurrentTime();
+            const soFar = wordList.filter(w => w.end <= now);
+                
+            transcriptionContainer.innerHTML = buildSpeakerText(soFar).replace(/\n/g, '<br>');
+        }
+
+        // Start transcription display
+        function startTranscription() {
+            if (!wordList) {
+                alert('No transcription available. Please transcribe the audio first.');
+                return;
+            }
+
+            isTranscriptionPlaying = true;
+            playTranscriptionButton.textContent = 'Stop Transcription';
+            transcriptionContainer.innerHTML = '';
+
+            // Update transcription text every 100ms
+            transcriptionInterval = setInterval(displayTranscription, 100);
+        }
+
+        // Stop transcription display
+        function stopTranscription() {
+            isTranscriptionPlaying = false;
+            playTranscriptionButton.textContent = 'Play Transcription';
+            clearInterval(transcriptionInterval);
+            transcriptionInterval = null;
+            transcriptionContainer.innerHTML = '';
+        }
+
+        // Event: Click browse button
+        browseButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Event: File selected through input
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Event: Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.backgroundColor = '#333';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.backgroundColor = '';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.backgroundColor = '';
+            if (e.dataTransfer.files.length > 0) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        // Event: Play/Pause button
+        playPauseButton.addEventListener('click', () => {
+            wavesurfer.playPause();
+        });
+
+        // Event: Forward button
+        forwardButton.addEventListener('click', () => {
+            wavesurfer.skip(5);
+        });
+
+        // Event: Backward button
+        backwardButton.addEventListener('click', () => {
+            wavesurfer.skip(-5);
+        });
+
+        // Event: Upload new audio
+        uploadNewButton.addEventListener('click', () => {
+            playerContainer.style.display = 'none';
+            uploadArea.style.display = 'block';
+            fileInput.value = '';
+            currentFile = null;
+            wordList = null;
+             dialogueText = '';
+            stopTranscription();
+        });
+
+    transcribeButton.addEventListener('click', async () => {
+        if (!currentFile) {
+            alert('No audio file selected.');
+            return;
+        }
+
+        transcribeButton.disabled = true;
+        transcriptionContainer.innerHTML = 'Transcribing...';
+
+        try {
+            const formData = new FormData();
+            formData.append('file', currentFile);
+
+            const response = await fetch('/transcribe', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Transcription failed');
+            }
+
+            const data = await response.json();
+            // Ensure timeWord has the correct format (timestamp -> word mapping)
+            dialogueText = data.dialogue;
+            wordList     = data.words;
+            
+            // Optional: Log the structure to verify format
+            // console.log("Received transcription data:", timeWord);
+            
+            transcriptionContainer.innerHTML = 'Transcription ready. Click "Play Transcription" to view.';
+        } catch (error) {
+            console.error('Transcription error:', error);
+            transcriptionContainer.innerHTML = 'Error during transcription.';
+        } finally {
+            transcribeButton.disabled = false;
+        }
+    });
+
+        // Event: Play/Stop Transcription button
+        playTranscriptionButton.addEventListener('click', () => {
+            if (isTranscriptionPlaying) {
+                stopTranscription();
+            } else {
+                startTranscription();
+            }
+        });
+
+function renderAnalyzedText() {
+    if (!analyzedRaw) {
+        analyzedContainer.innerHTML = ''; // Clear if no raw text
+        return;
+    }
+
+    let html = analyzedRaw; // Start with the raw text
+
+    // 1. Apply grammar highlighting if grammarShown is true
+    if (grammarShown) {
+        const regex_grammar = /\[\+\s*gram\]\s*#\([^)]*\)/gi;
+        html = html.replace(
+            regex_grammar,
+            m => `<span class="grammar-note">${m}</span>`
+        );
+    } else {
+        // If not shown, strip it out
+        const regex_grammar = /\[\+\s*gram\]\s*#\([^)]*\)/gi;
+        html = html.replace(regex_grammar, '');
+    }
+
+    // 2. Apply utterance highlighting if utteranceShown is true
+    // This must operate on the 'html' variable which now contains the grammar modifications
+    if (utteranceShown) {
+        const regex_utterance = /\&\-\S+/gi;
+        html = html.replace(
+            regex_utterance,
+            m => `<span class="utterance-note">${m}</span>`
+        );
+    } else {
+        // If not shown, strip it out
+        const regex_utterance = /\&\-\S+/gi;
+        html = html.replace(regex_utterance, '');
+    }
+
+    if (correctionShown) {
+        const regex_correction = /\[\:\S+\]/gi;
+        html = html.replace(
+            regex_correction,
+            m => `<span class="correction-note">${m}</span>`
+        );
+    } else {
+        // If not shown, strip it out
+        const regex_correction = /\[\:\S+\]/gi;
+        console.log(regex_correction);
+        html = html.replace(regex_correction, '');
+    }
+
+    // Finally, replace newlines and set the innerHTML
+    analyzedContainer.innerHTML = html.replace(/\n/g, '<br>');
+}
+
+    ///////////////////////////////////////////////////////////////////
+  document.getElementById("btn-analyze").addEventListener("click", async () => {
+        if (!dialogueText) {
+            alert("No transcription available to check grammar.");
+            return;
+        }
+
+        analyzedContainer.innerHTML = "Analyzing Text...";
+
+        try {
+            const response = await fetch("/analyze", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: dialogueText }),
+            });
+
+            const result = await response.json();
+            if (result.corrected_text) {
+                analyzedRaw = result.corrected_text;
+                grammarShown = false;
+                utteranceShown = false;
+                correctionShown = false;
+                renderAnalyzedText(); // Call the combined renderer
+            } else if (result.error) {
+                analyzedContainer.innerHTML = "Error: " + result.error;
+            } else {
+                analyzedContainer.innerHTML = "Unexpected response.";
+            }
+        } catch (error) {
+            console.error("Analyze error:", error);
+            analyzedContainer.innerHTML = "Failed to contact server.";
+        }
+    });
+
+    document.getElementById('btn-grammar').addEventListener('click', () => {
+        if (!analyzedRaw) {
+            alert('Run Analyze first.');
+            return;
+        }
+        grammarShown = !grammarShown; // flip flag
+        renderAnalyzedText(); // Call the combined renderer
+    });
+
+    document.getElementById('btn-utterance').addEventListener('click', () => {
+        if (!analyzedRaw) {
+            alert('Run Analyze first.');
+            return;
+        }
+        utteranceShown = !utteranceShown; // flip flag
+        renderAnalyzedText(); // Call the combined renderer
+    });
+
+    document.getElementById('btn-correction').addEventListener('click', () => {
+        if (!analyzedRaw) {
+            alert('Run Analyze first.');
+            return;
+        }
+        correctionShown = !correctionShown; // flip flag
+        renderAnalyzedText(); // Call the combined renderer
+    });
+
+
+    </script>
+</body>
+</html>

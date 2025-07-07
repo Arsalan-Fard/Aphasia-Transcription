@@ -24,8 +24,8 @@ def chunk_wav_file(input_file, output_folder, chunk_length=5*60*1000):  # 5 minu
     print("Audio chunking completed!")
 
 # Example usage
-input_wav = "Dataset/Audio/1554.wav"  # Change to your file path
+input_wav = "../Dataset/Audio/1713.wav"  # Change to your file path
 
-output_dir = "1554_chunks"  # Directory to save chunks
+output_dir = "1713_chunks"  # Directory to save chunks
 
 chunk_wav_file(input_wav, output_dir)
